@@ -97,18 +97,40 @@ car.move()
 bike = Bicycle("Bike")
 bike.move()
 
-# Абстракция
+# 4. Абстракция
 #Создайте абстрактный класс Shape с методом area() и
 # конкретные классы-наследники для вычисления площади разных фигур.
 #Абстрактный класс Shape должен иметь метод area(), который
 # не реализован (используйте модуль abc).
 
-#Реализуйте два наследника Rectangle, принимающий ширину и высоту. Circle, принимающий радиус.
+from abc import abstractmethod, ABC
+import math
 
+class Shape:
+    @abstractmethod
+    def area (self):
+        pass
+
+#Реализуйте два наследника Rectangle, принимающий ширину и высоту. Circle, принимающий радиус.
 # Метод area() унаследованных классов должен вычислять площадь.
 
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    def area(self):
+        return self.width * self.height
+
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+
+    def aref(self):
+        return math.pi * self.radius ** 2
 
 # Пример использования:
-#       rect = Rectangle(10, 5)
-#       circle = Circle(7)
+rect = Rectangle(10, 5)
+print(rect.area())
 
+circle = Circle(7)
+print(circle.area())
