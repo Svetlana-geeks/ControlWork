@@ -31,28 +31,26 @@ print(p.get_age()) # Вывод: 25 (возраст не изменился)
 # У класса Animal должен быть атрибут name и метод speak(), который возвращает строку "I am an animal"
 class Animal:
     def __init__(self,animal_name):
-        self.animal_name = animal_name
+       self.animal_name = animal_name
 
     def speak(self):
         print(f"{self.animal_name} I am an animal")
 
 #У класса Dog метод speak() должен возвращать "Woof".
 class Dog(Animal):
-    def __init__(self, dog_name):
-        super().__init__(dog_name)  #  конструктор родительского класса
-        self.dog_name =dog_name
+    def __init__(self, animal_name):
+        super().__init__(animal_name)  #  конструктор родительского класса
 
     def speak(self):
-        print(f"{self.dog_name} Woof")
+        print(f"{self.animal_name} Woof")
 
 #У класса Cat метод speak() должен возвращать "Meow"
 class Cat(Animal):
-    def __init__(self, cat_name):
-        super().__init__(cat_name)
-        self.cat_name = cat_name
+    def __init__(self, animal_name):
+        super().__init__(animal_name)
 
     def speak(self):
-        print(f"{self.cat_name} Meow")
+        print(f"{self.animal_name} Meow")
 
 # Экземпляры и использование методов классов
 dog = Dog ("Buddy")
@@ -66,13 +64,35 @@ cat.speak()
 
 # Создайте базовый класс Vehicle с методом move(), который возвращает строку "Vehicle is moving"
 
+class Vehicle:
+    def __init__(self, vehicle_name):
+        self.vehicle_name = vehicle_name
 
+    def move(self):
+        return print ("Vehicle is moving")
 
 #Создайте два дочерних класса Car и Bicycle, которые переопределяют метод move().
-
 #- У Car метод возвращает "Car is driving".
-
 # У Bicycle метод возвращает "Bicycle is pedaling"
+
+class Car(Vehicle):
+    def __init__(self, vehicle_name):
+        super().__init__(vehicle_name)
+
+    def move(self):
+        return print ("Car is driving")
+
+class Bicycle(Vehicle):
+    def __init__(self, vehicle_name):
+        super().__init__(vehicle_name)
+
+    def move(self):
+        return print ("Bycycle is pedaling")
 
 # Напишите функцию move(vehicle), которая принимает объект и вызывает у него метод move()
 # пример использования car = Car() bike = Bicycle()
+
+car = Car("Toyota")
+car.move()
+bike = Bicycle("Bike")
+bike.move()
