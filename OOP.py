@@ -37,23 +37,42 @@ class Animal:
         print(f"{self.animal_name} I am an animal")
 
 #У класса Dog метод speak() должен возвращать "Woof".
-class Dog(self, Animal):
-    super().__init__(dog_name)  #  конструктор родительского класса
-    self.dog_name =dog_name
+class Dog(Animal):
+    def __init__(self, dog_name):
+        super().__init__(dog_name)  #  конструктор родительского класса
+        self.dog_name =dog_name
 
     def speak(self):
-        print(f"{self.animal_name} Woof")
+        print(f"{self.dog_name} Woof")
 
 #У класса Cat метод speak() должен возвращать "Meow"
 class Cat(Animal):
     def __init__(self, cat_name):
-        self.dog_name = cat_name
+        super().__init__(cat_name)
+        self.cat_name = cat_name
 
     def speak(self):
-        print(f"{self.animal_name} Meow")
+        print(f"{self.cat_name} Meow")
 
-# Экзкмпляры и использование методов классов
-dog = Dog ("Mukhtar")
-print (dog, dog.speak(dog))
-cat = Cat ("Murzik")
-print (cat, cat.speak(cat))
+# Экземпляры и использование методов классов
+dog = Dog ("Buddy")
+dog.speak()
+cat = Cat ("Kitty")
+cat.speak()
+
+# Полиморфизм
+# Создайте несколько классов, которые будут представлять разные виды транспорта,
+# и функцию move(vehicle), которая вызывает общий метод move() у переданного объекта
+
+# Создайте базовый класс Vehicle с методом move(), который возвращает строку "Vehicle is moving"
+
+
+
+#Создайте два дочерних класса Car и Bicycle, которые переопределяют метод move().
+
+#- У Car метод возвращает "Car is driving".
+
+# У Bicycle метод возвращает "Bicycle is pedaling"
+
+# Напишите функцию move(vehicle), которая принимает объект и вызывает у него метод move()
+# пример использования car = Car() bike = Bicycle()
